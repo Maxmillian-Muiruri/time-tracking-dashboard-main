@@ -1,0 +1,189 @@
+:root {
+  --background-color: #0d1323;
+  --background-light: #1d204b;
+  --color-blue: #5746ea;
+
+  --color-orange: #ff8b64;
+  --color-light-blue: #56c2e6;
+  --color-red: #ff5e7d;
+  --color-green: #4bcf83;
+  --color-purple: #7434d1;
+  --color-yellow: #f1c75b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  min-height: 100vh;
+}
+body {
+  width: 100vh;
+  background-color: #0d1323;
+  display: grid;
+  text-align: center;
+  color: white;
+  place-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.container {
+  display: grid;
+  justify-items: auto;
+  justify-content: space-between;
+  gap: clamp(1rem, 3vw, 2rem);
+  width: 100%;
+  max-width: 800px;
+  margin: 50px 35rem 50px 28rem;
+  grid-template-columns: repeat(3, minmax(150px, 1fr));
+}
+.sidebar {
+  background-color: var(--background-light);
+  border-radius: 10px;
+}
+
+.tracks {
+  margin: auto 50%;
+  flex-grow: 1;
+  margin-left: 1.5em;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(150px, 1fr));
+  grid-gap: 1.5em;
+}
+.profile {
+  background-color: var(--color-blue);
+  padding: 1.5em;
+  border-radius: 10px;
+}
+.profile img {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  margin-bottom: 2em;
+}
+.stats-text {
+  font-size: 0.8em;
+  color: #cecece;
+}
+.name {
+  font-size: 1.5em;
+  color: #fff;
+}
+.times {
+  padding: 1em 1.5em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.times p.active {
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0.5em 0;
+}
+.track-item {
+  background-color: #fff;
+  border-radius: 10px;
+  background-color: var(--background-light);
+  color: #fff;
+  padding: 1em;
+  position: relative;
+  margin-top: 14px;
+}
+.track-item .nav {
+  display: flex;
+  justify-content: space-between;
+}
+.track-item .nav span:nth-child(2) {
+  margin-top: -0.3em;
+  font-weight: bolder;
+}
+
+.track-item .time {
+  font-size: 2em;
+  margin-top: 0.5em;
+}
+.track-item .previous {
+  color: rgba(255, 255, 255, 0.5);
+}
+.track-item::after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: -15px;
+  left: 0;
+  z-index: -1;
+  border-radius: 10px;
+  transition: top 0.3s;
+}
+.track-item:hover::after {
+  top: -30px;
+}
+
+.track-item:nth-child(1)::after {
+  background-color: var(--color-orange);
+}
+.track-item:nth-child(2)::after {
+  background-color: var(--color-light-blue);
+}
+.track-item:nth-child(3)::after {
+  background-color: var(--color-red);
+}
+.track-item:nth-child(4)::after {
+  background-color: var(--color-green);
+}
+.track-item:nth-child(5)::after {
+  background-color: var(--color-purple);
+}
+.track-item:nth-child(6)::after {
+  background-color: var(--color-yellow);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 250px 1fr; /* Sidebar takes 250px, tracks take the remaining space */
+  gap: 20px; /* Gap between grid items */
+}
+
+.sidebar {
+  /* Styles for the sidebar */
+  background-color: var(--background-light);
+  border-radius: 10px;
+}
+
+.tracks {
+  /* Styles for the tracks section */
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(250px, 1fr)
+  ); /* Responsive grid for track items */
+  gap: 20px; /* Gap between track items */
+}
+
+.track-item {
+  /* Styles for individual track items */
+  background-color: #fff;
+  border-radius: 10px;
+  background-color: var(--background-light);
+  color: #fff;
+  padding: 1em;
+  position: relative;
+  margin-top: 14px;
+}
+
+/* Media query for screens smaller than 768px */
+@media (max-width: 680px) {
+  .container {
+    grid-template-columns: 1fr; /* Change to single column layout for smaller screens */
+  }
+  .sidebar {
+    margin-bottom: 1.5em;
+  }
+  .tracks {
+    margin-left: 0;
+  }
+}
